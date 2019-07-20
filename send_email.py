@@ -21,8 +21,8 @@ for tweet in data.itertuples():
 content = " \n ".join(content)
 
 message = Mail(
-    from_email="seth.mridul@gmail.com",
-    to_emails="seth.mridul+twitter@gmail.om",
+    from_email="from@example.com",
+    to_emails="to@example.com",
     subject="Twitter Update for" + email_date,
     html_content="<ul>" + content + "</ul>",
 )

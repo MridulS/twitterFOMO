@@ -36,18 +36,21 @@ $ mkdir data
 $ pip install -r requirements.txt
 ```
 
-Also add API keys to your bash profile, use `export` or hardcode your API keys in the scripts.
+Edit the config file `config.env` to store your API keys and email address.
 
 ```
-$ export SENDGRID_API_KEY='YOUR_API_KEY'
-$ export TWITTER_CONSUMER_KEY='TWITTER_CONSUMER_KEY_FROM_YOUR_TWITTER_APP'
-$ export TWITTER_CONSUMER_SECRET='TWITTER_CONSUMER_SECRET_FROM_YOUR_TWITTER_APP'
-$ export TWITTER_TOKEN='TWITTER_TOKEN_FROM_YOUR_TWITTER_APP'
-$ export TWITTER_TOKEN_SECRET ='TWITTER_TOKEN_SECRET_FROM_YOUR_TWITTER_APP'
+export SENDGRID_API_KEY='YOUR_API_KEY'
+export TWITTER_CONSUMER_KEY='TWITTER_CONSUMER_KEY_FROM_YOUR_TWITTER_APP'
+export TWITTER_CONSUMER_SECRET='TWITTER_CONSUMER_SECRET_FROM_YOUR_TWITTER_APP'
+export TWITTER_TOKEN='TWITTER_TOKEN_FROM_YOUR_TWITTER_APP'
+export TWITTER_TOKEN_SECRET ='TWITTER_TOKEN_SECRET_FROM_YOUR_TWITTER_APP'
+export FROM_EMAIL="YOUR_EMAIL"
+export TO_EMAIL="TO_EMAIL"
 ```
-
-Change the `from_email` and `to_emails` in `send_email.py` to your email.
-
+Run the config file to load in your API keys.
+```
+source ./config.env
+```
 Setup cron jobs using `crontab -e` and add the following to the file
 ```
 1 0 * * * Path_to/python3 Path_to/twitterFOMO/send_email.py >> Path_to/cron.log 2>&1

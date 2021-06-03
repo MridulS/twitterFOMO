@@ -99,7 +99,7 @@ if __name__ == "__main__":
     def _send_email():
         send_email(SENDGRID_API_KEY, from_email, to_emails)
 
-    schedule.every(fetch).hours.do(_fetch_tweet_job)
+    schedule.every(int(fetch)).hours.do(_fetch_tweet_job)
     schedule.every().day.at("01:00").do(_send_email)
     while True:
         schedule.run_pending()
